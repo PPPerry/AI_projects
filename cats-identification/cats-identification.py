@@ -200,6 +200,9 @@ d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations=2001,
 def show_predict(index, prediction=np.hstack((d["Y_prediction_train"], d["Y_prediction_test"])),
                  data=np.hstack((train_set_x, test_set_x)), origin=np.hstack((train_set_y, test_set_y)),
                  px=num_px, p=np.hstack((d["p_train"], d["p_test"]))):
+    if index >= prediction.shape[1]:
+        print("index超出数据范围")
+        return
     plt.imshow(data[:, index].reshape((px, px, 3)))
     plt.show()
     print("这张图的标签是" + str(origin[0, index]) + "，预测分类是" + str(int(prediction[0, index])) + "，预测概率是" + str(p[0, index]))
@@ -207,7 +210,7 @@ def show_predict(index, prediction=np.hstack((d["Y_prediction_train"], d["Y_pred
     return
 
 
-show_predict(12)
+show_predict(19)
 
 # 绘制成本随迭代次数增加时的变化情况
 costs = np.squeeze(d['costs'])  # 将表示向量的数组转换为秩为1的数组，便于matplotlib库函数画图
