@@ -228,6 +228,20 @@ for i in learning_rates:
     plt.plot(np.squeeze(models[str(i)]["costs"]), label=str(models[str(i)]["learning_rate"]))
 
 plt.ylabel('cost')
-plt.xlabel('iterations (hundreds)')
+plt.xlabel('iterations (per hundreds)')
 legend = plt.legend(loc='upper right', shadow=True)
 plt.show()
+
+import skimage.transform as tf  # 用于缩放图片
+# 预测自己的图片
+# 在同目录下创建一个文件夹images,把你的任意图片改名成my_image1.jpg后放入文件夹
+my_image = "my_image1.jpg"
+
+image = np.array(plt.imread(my_image))
+my_image = tf.resize(image, (num_px, num_px), mode='reflect').reshape((1, num_px*num_px*3)).T
+my_prediction, my_p = predict(d["w"], d["b"], my_image)
+
+plt.imshow(image)
+plt.show()
+print("预测分类是" + str(int(my_prediction[0, 0])) + "，预测概率是" + str(my_p[0, 0]))
+
