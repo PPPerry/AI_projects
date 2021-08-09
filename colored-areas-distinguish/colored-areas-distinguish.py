@@ -9,7 +9,7 @@ X, Y = load_planar_dataset()
 
 # X[0, :]表示400点的横坐标，X[1, :]表示纵坐标，c=Y.ravel()是指定400个点的颜色，s=40指定点的大小
 # cmap指定调色板，如果用不同的调色板，那么Y的值对应 的颜色也会不同，用plt.cm.Spectral这个调色板时，0指代红色，1指代蓝色
-plt.scatter(X[0, :], X[1, :], c=np.squeeze(Y), s=40, cmap=plt.cm.Spectral)
+plt.scatter(X[0, :], X[1, :], c=np.squeeze(Y), s=40, cmap=plt.cm.Spectral)  # squeeze函数与ravel函数效果相同
 plt.ylabel('y')
 plt.xlabel('x')
 plt.show()

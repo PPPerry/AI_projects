@@ -12,3 +12,9 @@ a series of AI based projects
 
 ## Project2 colored-areas-distinguish
 搭建用于区分不同颜色区域的浅层神经网络
+
+环境配置：python中numpy、matplotlib和sklearn库
+
+训练样本：400个带颜色点的二维坐标
+
+测试样本：同训练样本。为简便起见，只用训练数据集进行效果检验。
