@@ -23,3 +23,7 @@ a series of AI based projects
 搭建用于识别猫的二分类深度神经网络
 
 环境配置：python中numpy、matplotlib和h5py库
+
+训练样本：209张64*64的带标签图片
+
+测试样本：50张64*64的带标签图片
