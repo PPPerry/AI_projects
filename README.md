@@ -18,3 +18,8 @@ a series of AI based projects
 训练样本：400个带颜色点的二维坐标
 
 测试样本：同训练样本。为简便起见，只用训练数据集进行效果检验。
+
+## Project3 cats-identification-dnn
+搭建用于识别猫的二分类深度神经网络
+
+环境配置：python中numpy、matplotlib和h5py库
