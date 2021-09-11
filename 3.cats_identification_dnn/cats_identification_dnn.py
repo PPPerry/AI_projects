@@ -3,7 +3,6 @@ import h5py
 import matplotlib.pyplot as plt
 
 from dnn_utils import *
-from testCases import *
 
 np.random.seed(1)
 
