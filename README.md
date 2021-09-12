@@ -27,3 +27,12 @@ a series of AI based projects
 训练样本：209张64*64的带标签图片
 
 测试样本：50张64*64的带标签图片
+
+## Project4 weights_initialize
+多种神经网络参数初始化方法对比——基于用于区分不同颜色区域的浅层神经网络
+
+环境配置：python中numpy、matplotlib和sklearn库
+
+训练样本：300个带颜色点的二维坐标
+
+测试样本：100个带颜色点的二维坐标

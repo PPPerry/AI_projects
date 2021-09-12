@@ -33,14 +33,14 @@ def model(X, Y, learning_rate=0.01, num_iterations=15000, print_cost=True, initi
             print("Cost after iteration {}: {}".format(i, cost))
             costs.append(cost)
 
-        # 画出成本走向图
-        plt.plot(costs)
-        plt.ylabel('cost')
-        plt.xlabel('iterations (per hundreds)')
-        plt.title("Learning rate =" + str(learning_rate))
-        plt.show()
+    # 画出成本走向图
+    plt.plot(costs)
+    plt.ylabel('cost')
+    plt.xlabel('iterations (per hundreds)')
+    plt.title("Learning rate =" + str(learning_rate))
+    plt.show()
 
-        return parameters
+    return parameters
 
 
 # 第一种方法——全部初始化为0
@@ -54,10 +54,61 @@ def initialize_parameters_zeros(layers_dims):
     return parameters
 
 
-# 用全0初始化法进行参数训练
-parameters = model(train_X, train_Y, initialization="zeros")
+# # 用全0初始化法进行参数训练
+# parameters = model(train_X, train_Y, initialization="zeros")
+# print("On the train set:")
+# predictions_train = predict(train_X, train_Y, parameters)  # 对训练数据进行预测，并打印出准确度
+# print("On the test set:")
+# predictions_test = predict(test_X, test_Y, parameters)  # 对测试数据进行预测，并打印出准确度
+
+
+def initialize_parameters_random(layers_dims):
+    np.random.seed(3)
+    parameters = {}
+    L = len(layers_dims)
+
+    for l in range(1, L):
+        parameters['W' + str(l)] = np.random.randn(layers_dims[l], layers_dims[l - 1])
+        parameters['b' + str(l)] = np.zeros((layers_dims[l], 1))
+    return parameters
+
+
+# # 用随机初始化法进行参数训练
+# parameters = model(train_X, train_Y, initialization="random")
+# print("On the train set:")
+# predictions_train = predict(train_X, train_Y, parameters)  # 对训练数据进行预测，并打印出准确度
+# print("On the test set:")
+# predictions_test = predict(test_X, test_Y, parameters)  # 对测试数据进行预测，并打印出准确度
+
+# plt.title("Model with large random initialization")
+# axes = plt.gca()
+# axes.set_xlim([-1.5, 1.5])
+# axes.set_ylim([-1.5, 1.5])
+# plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
+
+
+def initialize_parameters_he(layers_dims):
+    np.random.seed(3)
+    parameters = {}
+    L = len(layers_dims) - 1
+
+    for l in range(1, L + 1):
+        parameters['W' + str(l)] = np.random.randn(layers_dims[l], layers_dims[l - 1]) * np.sqrt(2 / layers_dims[l - 1])
+        parameters['b' + str(l)] = np.zeros((layers_dims[l], 1))
+
+    return parameters
+
+
+parameters = model(train_X, train_Y, initialization="he")
 print("On the train set:")
-predictions_train = predict(train_X, train_Y, parameters)  # 对训练数据进行预测，并打印出准确度
+predictions_train = predict(train_X, train_Y, parameters)
 print("On the test set:")
-predictions_test = predict(test_X, test_Y, parameters)  # 对测试数据进行预测，并打印出准确度
+predictions_test = predict(test_X, test_Y, parameters)
+
+
+plt.title("Model with He initialization")
+axes = plt.gca()
+axes.set_xlim([-1.5, 1.5])
+axes.set_ylim([-1.5, 1.5])
+plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
