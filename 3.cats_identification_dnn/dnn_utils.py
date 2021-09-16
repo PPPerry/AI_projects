@@ -1,3 +1,5 @@
+import random
+
 import numpy as np
 
 
@@ -52,3 +54,5 @@ def relu_backward(dA, cache):
     dZ[Z <= 0] = 0  # z小于等于0时，dZ = 0
 
     return dZ
+
+

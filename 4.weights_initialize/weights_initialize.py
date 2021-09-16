@@ -54,12 +54,12 @@ def initialize_parameters_zeros(layers_dims):
     return parameters
 
 
-# # 用全0初始化法进行参数训练
-# parameters = model(train_X, train_Y, initialization="zeros")
-# print("On the train set:")
-# predictions_train = predict(train_X, train_Y, parameters)  # 对训练数据进行预测，并打印出准确度
-# print("On the test set:")
-# predictions_test = predict(test_X, test_Y, parameters)  # 对测试数据进行预测，并打印出准确度
+# 用全0初始化法进行参数训练
+parameters = model(train_X, train_Y, initialization="zeros")
+print("On the train set:")
+predictions_train = predict(train_X, train_Y, parameters)  # 对训练数据进行预测，并打印出准确度
+print("On the test set:")
+predictions_test = predict(test_X, test_Y, parameters)  # 对测试数据进行预测，并打印出准确度
 
 
 def initialize_parameters_random(layers_dims):
@@ -68,7 +68,7 @@ def initialize_parameters_random(layers_dims):
     L = len(layers_dims)
 
     for l in range(1, L):
-        parameters['W' + str(l)] = np.random.randn(layers_dims[l], layers_dims[l - 1])
+        parameters['W' + str(l)] = np.random.randn(layers_dims[l], layers_dims[l - 1]) * 10
         parameters['b' + str(l)] = np.zeros((layers_dims[l], 1))
     return parameters
 
@@ -79,7 +79,7 @@ def initialize_parameters_random(layers_dims):
 # predictions_train = predict(train_X, train_Y, parameters)  # 对训练数据进行预测，并打印出准确度
 # print("On the test set:")
 # predictions_test = predict(test_X, test_Y, parameters)  # 对测试数据进行预测，并打印出准确度
-
+#
 # plt.title("Model with large random initialization")
 # axes = plt.gca()
 # axes.set_xlim([-1.5, 1.5])
