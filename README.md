@@ -36,3 +36,12 @@ a series of AI based projects
 训练样本：300个带颜色点的二维坐标
 
 测试样本：100个带颜色点的二维坐标
+
+## Project5 regularization
+多种正则化方法对比——基于用于区分不同颜色区域的浅层神经网络
+
+环境配置：python中numpy、matplotlib和scipy库
+
+训练样本：211个带颜色点的二维坐标
+
+测试样本：200个带颜色点的二维坐标
