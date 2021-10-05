@@ -45,3 +45,6 @@ a series of AI based projects
 训练样本：211个带颜色点的二维坐标
 
 测试样本：200个带颜色点的二维坐标
+
+## Project6 gradient_check
+一维线性模型/多层神经网络的梯度检验
