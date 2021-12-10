@@ -120,7 +120,7 @@ def gradient_check_n(parameters, gradients, X, Y, epsilon=1e-7):
     denominator = np.linalg.norm(grad) + np.linalg.norm(gradapprox)
     difference = numerator / denominator
 
-    if difference < 2e-7:
+    if difference > 2e-7:
         print("backward propagation is wrong! difference = " + str(difference))
     else:
         print("backward propagation is right! difference = " + str(difference))
